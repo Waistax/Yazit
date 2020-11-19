@@ -18,5 +18,13 @@
     <ClCompile Include="Yazıt.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Başlangıç.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Yazıt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

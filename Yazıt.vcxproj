@@ -139,7 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Başlangıç.cpp" />
     <ClCompile Include="Yazıt.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Yazıt.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
