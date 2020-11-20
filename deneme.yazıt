@@ -1,0 +1,7 @@
+tam sayý1 = 4;
+kesir ondaBiri = sayý / 10.0;
+yaz("Gerçekten de böyle bir giriþime gerek var mýydý?");
+özel dize =
+"Evet! \"Birazcýk\" yardýmla o kadar da zor deðil.";
+karakter onay = 'e';
+kesir pi = 3.1419;

@@ -69,8 +69,8 @@ namespace bad
 		belirteç_türü{ dize{ "SONRA_AZALT" }, desen{ "^--" } },
 		belirteç_türü{ dize{ "SONRA_ARTTIR" }, desen{ "^\\+\\+" } },
 		belirteç_türü{ dize{ "KAPSAM" }, desen{ "^::" } },
-		belirteç_türü{ dize{ "KESÝR" }, desen{ "^\\d*\\.\\d+" } },
 		belirteç_türü{ dize{ "SAYI" }, desen{ "^\\d+" } },
+		belirteç_türü{ dize{ "KESÝR" }, desen{ "^\\d*\\.\\d+" } },
 		belirteç_türü{ dize{ "DÝZE" }, desen{ "^\"[^\"\\\\\\n]*(?:\\\\.[^\"\\\\\\n]*)*\"" } },
 		belirteç_türü{ dize{ "KARAKTER" }, desen{ "^'([^'\\\\\\n]|\\\\.)'" } },
 		belirteç_türü{ dize{ "TANIMLAYICI" }, desen{ "^[a-zA-ZÇÐÝÖÞÜçðýöþü_][a-zA-ZÇÐÝÖÞÜçðýöþü_\\d]*" } }

@@ -1,20 +1,31 @@
 #include "Yasayıcı.h"
 
 #include <iostream>
+#include <fstream>
+
+bool yasama(bad::liste<bad::belirteç>& belirteçler, const bad::dize& dosya_yolu)
+{
+	bad::liste<bad::dize> satırlar;
+	std::ifstream dosya{ dosya_yolu };
+
+	if (dosya.is_open())
+	{
+		bad::dize satır;
+		while (std::getline(dosya, satır))
+			satırlar.push_back(satır);
+		dosya.close();
+	}
+	else
+		return false;
+
+	return bad::yasama(belirteçler, satırlar);
+}
 
 int main()
 {
 	bad::liste<bad::belirteç> liste;
-	bad::liste<bad::dize> satırlar;
 
-	satırlar.push_back("tam sayı1 = 4;");
-	satırlar.push_back("kesir onda_biri = sayı1 / 10.0;");
-	satırlar.push_back("yaz(\"Gerçekten de böyle bir girişime gerek var mıydı?\");");
-	satırlar.push_back("özel dize = \"Evet! \\\"Birazcık\\\" yardımla o kadar  da zor değil.\";");
-	satırlar.push_back("karakter onay = 'e';");
-	satırlar.push_back("kesir pi = 3.1419;");
-
-	if (bad::yasama(liste, satırlar))
+	if (yasama(liste, "deneme.yazıt"))
 		std::cout << "Yasama tamamlandı! " << liste.size() << std::endl;
 	else
 		std::cout << "Yasamada bir problem oluştu!" << std::endl;

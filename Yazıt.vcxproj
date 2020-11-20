@@ -148,6 +148,9 @@
     <ClInclude Include="Yasayıcı.h" />
     <ClInclude Include="Yazıt.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="deneme.yazıt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
