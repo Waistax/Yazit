@@ -140,9 +140,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Başlangıç.cpp" />
+    <ClCompile Include="Yasayıcı.cpp" />
     <ClCompile Include="Yazıt.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Yasayıcı.h" />
     <ClInclude Include="Yazıt.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

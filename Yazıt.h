@@ -1,5 +1,5 @@
-#ifndef YAZIT_ÜST_BÝLGÝSÝ
-#define YAZIT_ÜST_BÝLGÝSÝ
+#ifndef YAZIT
+#define YAZIT
 
 namespace bad
 {
