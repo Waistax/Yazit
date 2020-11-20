@@ -2,15 +2,20 @@
 #define YASAYICI
 
 #include <string>
+#include <vector>
+#include <regex>
 
 namespace bad
 {
 	typedef std::string dize;
+	template<typename T>
+	using liste = std::vector<T>;
+	typedef std::regex desen;
 
 	struct belirteç_türü
 	{
 		dize ad;
-		dize desen;
+		desen desen;
 	};
 
 	struct belirteç
@@ -21,8 +26,10 @@ namespace bad
 
 	const belirteç_türü türler[1] =
 	{
-		{ "tanýmlayýcý", "^[a-zA-Z_][a-zA-Z_0-9]*" }
+		{ "tanýmlayýcý", desen("^[a-zA-Z_][a-zA-Z_0-9]*") }
 	};
+
+	bool yasama(liste<belirteç>& liste, const dize& dize);
 }
 
 #endif
