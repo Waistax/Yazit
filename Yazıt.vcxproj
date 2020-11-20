@@ -142,10 +142,13 @@
     <ClCompile Include="Başlangıç.cpp" />
     <ClCompile Include="Yasayıcı.cpp" />
     <ClCompile Include="Yazıt.cpp" />
+    <ClCompile Include="Önişlemci.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Türler.h" />
     <ClInclude Include="Yasayıcı.h" />
     <ClInclude Include="Yazıt.h" />
+    <ClInclude Include="Önişlemci.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,17 +1,10 @@
 #ifndef YASIYICI
 #define YASAYICI
 
-#include <string>
-#include <vector>
-#include <regex>
+#include "Türler.h"
 
 namespace bad
 {
-	using dize = std::string;
-	template<typename T>
-	using liste = std::vector<T>;
-	using desen = std::regex;
-
 	struct belirteç_türü
 	{
 		dize ad;
