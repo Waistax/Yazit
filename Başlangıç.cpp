@@ -13,16 +13,12 @@ int main()
 	{
 		std::cout << "Yasama tamamlandı! " << liste.size() << std::endl;
 
-		for (bad::liste<bad::belirteç>::iterator i{ liste.begin() }; i != liste.end(); i++)
-		{
+		for (auto i{ liste.begin() }; i != liste.end(); i++)
 			std::cout << i->tür.ad << ": " << i->beden << std::endl;
-		}
 	}
 
 	else
-	{
 		std::cout << "Yasamada bir problem oluştu!" << std::endl;
-	}
 
 	return 0;
 }

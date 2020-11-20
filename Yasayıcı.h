@@ -35,7 +35,9 @@ namespace bad
 		belirteç_türü{ dize{ "tanýmlayýcý" }, desen{ "^[a-zA-ZÇÐÝÖÞÜçðýöþü_][a-zA-ZÇÐÝÖÞÜçðýöþü_0-9]*" } }
 	};
 
-	bool yasama(liste<belirteç>& liste, const dize& dize);
+	bool yasama(liste<belirteç>& liste, const dize& satýr);
+
+	bool yasama(liste<belirteç>& belirteçler, const liste<const dize>& satýrlar);
 }
 
 #endif
