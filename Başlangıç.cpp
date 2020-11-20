@@ -10,7 +10,9 @@ int main()
 	satırlar.push_back("tam sayı1 = 4;");
 	satırlar.push_back("kesir onda_biri = sayı1 / 10.0;");
 	satırlar.push_back("yaz(\"Gerçekten de böyle bir girişime gerek var mıydı?\");");
-	satırlar.push_back("özel söz = \"evet\";");
+	satırlar.push_back("özel dize = \"Evet! \\\"Birazcık\\\" yardımla o kadar  da zor değil.\";");
+	satırlar.push_back("karakter onay = 'e';");
+	satırlar.push_back("kesir pi = 3.1419;");
 
 	if (bad::yasama(liste, satırlar))
 		std::cout << "Yasama tamamlandı! " << liste.size() << std::endl;

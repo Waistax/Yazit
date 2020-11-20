@@ -1,1 +1,0 @@
-#include "Öniþlemci.h"

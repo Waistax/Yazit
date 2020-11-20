@@ -24,18 +24,12 @@
     <ClCompile Include="Yasayıcı.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Önişlemci.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Yazıt.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Yasayıcı.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Önişlemci.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Türler.h">
