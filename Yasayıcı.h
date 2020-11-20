@@ -26,11 +26,13 @@ namespace bad
 		belirteç(const belirteç_türü& tür, dize beden);
 	};
 
-	constexpr int TÜR_SAYISI = 1;
+	constexpr int TÜR_SAYISI = 3;
 
 	const belirteç_türü türler[TÜR_SAYISI] =
 	{
-		{ "tanýmlayýcý", desen("^[a-zA-Z_][a-zA-Z_0-9]*") }
+		belirteç_türü{ dize{ "iþleç" }, desen{ "^(::|\\+\\+|--|\\.\\*|->\\*|->|<<|>>|<=|>=|==|!=|&&|\\|\\||\\*=|\\/=|%=|\\+=|-=|<<=|>>=|&=|\\^=|\\|=|\\(|\\)|\\[|\\]|!|~|\\+|-|&|\\*|\\?|:|\\.|,|\\/|%|<|>|\\^|\\||=)" } },
+		belirteç_türü{ dize{ "sayý" }, desen{ "^[0-9]+(\\.[0-9]*)?" } },
+		belirteç_türü{ dize{ "tanýmlayýcý" }, desen{ "^[a-zA-ZÇÐÝÖÞÜçðýöþü_][a-zA-ZÇÐÝÖÞÜçðýöþü_0-9]*" } }
 	};
 
 	bool yasama(liste<belirteç>& liste, const dize& dize);
