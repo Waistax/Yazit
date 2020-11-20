@@ -7,10 +7,10 @@
 
 namespace bad
 {
-	typedef std::string dize;
+	using dize = std::string;
 	template<typename T>
 	using liste = std::vector<T>;
-	typedef std::regex desen;
+	using desen = std::regex;
 
 	struct belirteç_türü
 	{
@@ -20,11 +20,15 @@ namespace bad
 
 	struct belirteç
 	{
-		belirteç_türü tür;
+		const belirteç_türü& tür;
 		dize beden;
+
+		belirteç(const belirteç_türü& tür, dize beden);
 	};
 
-	const belirteç_türü türler[1] =
+	constexpr int TÜR_SAYISI = 1;
+
+	const belirteç_türü türler[TÜR_SAYISI] =
 	{
 		{ "tanýmlayýcý", desen("^[a-zA-Z_][a-zA-Z_0-9]*") }
 	};
