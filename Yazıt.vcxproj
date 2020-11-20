@@ -140,10 +140,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Başlangıç.cpp" />
+    <ClCompile Include="SoyutSözdizimi.cpp" />
     <ClCompile Include="Yasayıcı.cpp" />
     <ClCompile Include="Yazıt.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="SoyutSözdizimi.h" />
     <ClInclude Include="Türler.h" />
     <ClInclude Include="Yasayıcı.h" />
     <ClInclude Include="Yazıt.h" />
