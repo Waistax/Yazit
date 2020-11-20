@@ -35,7 +35,7 @@ bool bad::yasama(liste<belirteç>& belirteçler, const dize& satır)
 	return true;
 }
 
-bool bad::yasama(liste<belirteç>& belirteçler, const liste<const dize>& satırlar)
+bool bad::yasama(liste<belirteç>& belirteçler, const liste<dize>& satırlar)
 {
 	for (auto i{ satırlar.begin() }; i != satırlar.end(); i++)
 		if (!yasama(belirteçler, *i))
