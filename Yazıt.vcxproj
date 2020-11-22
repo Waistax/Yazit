@@ -147,6 +147,7 @@
   <ItemGroup>
     <ClInclude Include="SoyutSözdizimi.h" />
     <ClInclude Include="SSAAnlamsalNesnesi.h" />
+    <ClInclude Include="SSANesnesi.h" />
     <ClInclude Include="SSASözdizimiNesnesi.h" />
     <ClInclude Include="SSAKaynakNesnesi.h" />
     <ClInclude Include="Türler.h" />

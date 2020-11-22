@@ -1,9 +1,9 @@
 #ifndef SSA_SÖZDÝZÝMÝ_NESNESÝ
 #define SSA_SÖZDÝZÝMÝ_NESNESÝ
 
-#include "SoyutSözdizimi.h"
+#include "SSANesnesi.h"
 #include "SSAKaynakNesnesi.h"
-#include <vector>
+#include "Türler.h"
 
 namespace bad
 {
@@ -191,8 +191,8 @@ namespace bad
 	{
 	public:
 		KaynakKonumu* konumBilgisi;
-		std::vector<ÖniþleyiciUnsuru> öniþleyiciUnsurlarý;
-		std::vector<DipnotDeyimi> dipnotlar;
+		liste<ÖniþleyiciUnsuru> öniþleyiciUnsurlarý;
+		liste<DipnotDeyimi> dipnotlar;
 	};
 
 	class ÖniþleyiciUnsuru : public SSASözdizimiNesnesi
@@ -229,14 +229,14 @@ namespace bad
 	class Ad : public ÝkincilSözdizimiNesnesi
 	{
 	public:
-		std::string adDizesi;
+		dize adDizesi;
 	};
 
 	class DüðmeDurumu : public ÝkincilSözdizimiNesnesi
 	{
 	public:
 		bool bütünDurumlarýDeðerlendirMi;
-		std::vector<Demeç> gövdesi;
+		liste<Demeç> gövdesi;
 	};
 
 	class YakalamaGövdesi : public ÝkincilSözdizimiNesnesi
@@ -277,7 +277,7 @@ namespace bad
 	public:
 		SanalBelirlemesi* sanalBelirleyici;
 		EriþimÇeþidi* eriþimÇeþidi;
-		std::vector<AdlýTürGönderimi> sýnýfAdý;
+		liste<AdlýTürGönderimi> sýnýfAdý;
 	};
 
 	class ÖðeNesnesi : public ÝkincilSözdizimiNesnesi
@@ -292,7 +292,7 @@ namespace bad
 	public:
 		SaklamaBelirlemesi* saklamaBelirleyicisi;
 		EriþimÇeþidi* eriþimÇeþidi;
-		std::string baðlamaBelirleyicisi;
+		dize baðlamaBelirleyicisi;
 	};
 	
 	class TürTanýmý : public TanýmNesnesi
@@ -305,7 +305,7 @@ namespace bad
 	{
 	public:
 		Ad* adUzayý;
-		std::vector<TanýmNesnesi> gövdesi;
+		liste<TanýmNesnesi> gövdesi;
 		AdUzayýTürü* adUzayýTürü;
 	};
 
@@ -341,8 +341,8 @@ namespace bad
 	{
 	public:
 		TürGönderimi* dönderdiðiTür;
-		std::vector<BiçimselEtkenTanýmý> biçimselEtkenler;
-		std::vector<Demeç> gövdesi;
+		liste<BiçimselEtkenTanýmý> biçimselEtkenler;
+		liste<Demeç> gövdesi;
 		ÝþlevÖðeNiceleyicileri* iþlevÖðeNiceleyicileri;
 		ÝþlevKapsamý* açtýðýKapsam;
 	};
@@ -350,8 +350,8 @@ namespace bad
 	class GirdiTanýmý : public Taným
 	{
 	public:
-		std::vector<BiçimselEtkenTanýmý> biçimselEtkenler;
-		std::vector<Demeç> gövdesi;
+		liste<BiçimselEtkenTanýmý> biçimselEtkenler;
+		liste<Demeç> gövdesi;
 	};
 
 	class VeriTanýmý : public Taným
@@ -370,7 +370,7 @@ namespace bad
 	class ÝþlevBildirimi : public Bildirim
 	{
 	public:
-		std::vector<BiçimselEtkenBildirimi> biçimselEtkenler;
+		liste<BiçimselEtkenBildirimi> biçimselEtkenler;
 		ÝþlevÖðeNiceleyicileri* iþlevÖðeNiceleyicileri;
 	};
 
@@ -452,21 +452,21 @@ namespace bad
 	class MakroTanýmý : public ÖniþleyiciUnsuru
 	{
 	public:
-		std::string makroAdý;
-		std::string gövdesi;
+		dize makroAdý;
+		dize gövdesi;
 	};
 
 	class Yorum : public ÖniþleyiciUnsuru
 	{
 	public:
-		std::string gövdesi;
+		dize gövdesi;
 	};
 
 	class ÝþlevTürü : public Tür
 	{
 	public:
 		TürGönderimi* dönderdiðiTür;
-		std::vector<BiçimselEtkenTürü> etkenleri;
+		liste<BiçimselEtkenTürü> etkenleri;
 	};
 
 	class VeriTürü : public Tür
@@ -487,7 +487,7 @@ namespace bad
 	class SýralamaTürü : public VeriTürü
 	{
 	public:
-		std::vector<SýralamaHazýrBilgisiTanýmý> sýralamaHazýrBilgileri;
+		liste<SýralamaHazýrBilgisiTanýmý> sýralamaHazýrBilgileri;
 	};
 
 	class KurulmuþTür : public VeriTürü
@@ -499,7 +499,7 @@ namespace bad
 	class BütünTürü : public VeriTürü
 	{
 	public:
-		std::vector<ÖðeNesnesi> öðeleri;
+		liste<ÖðeNesnesi> öðeleri;
 		BütünKapsamý* açtýðýKapsam;
 	};
 
@@ -584,7 +584,7 @@ namespace bad
 	class DiziTürü : public KurulmuþTür
 	{
 	public:
-		std::vector<Boyut> dereceleri;
+		liste<Boyut> dereceleri;
 	};
 
 	class YapýTürü : public BütünTürü
@@ -596,7 +596,7 @@ namespace bad
 	class SýnýfTürü : public BütünTürü
 	{
 	public:
-		std::vector<Köken> kökeni;
+		liste<Köken> kökeni;
 	};
 
 	class DipnotTürü : public BütünTürü
@@ -664,7 +664,7 @@ namespace bad
 	class GövdeDemeci : public Demeç
 	{
 	public:
-		std::vector<Demeç> altDemeçleri;
+		liste<Demeç> altDemeçleri;
 		GövdeKapsamý* açtýðýKapsam;
 	};
 
@@ -703,7 +703,7 @@ namespace bad
 	{
 	public:
 		Demeç* koruduðuDemeç;
-		std::vector<YakalamaGövdesi> yakalamaGövdeleri;
+		liste<YakalamaGövdesi> yakalamaGövdeleri;
 		Demeç* sonDemeci;
 	};
 
@@ -731,7 +731,7 @@ namespace bad
 	class DurumGövdesi : public DüðmeDurumu
 	{
 	public:
-		std::vector<Deyim> durumDeyimleri;
+		liste<Deyim> durumDeyimleri;
 	};
 
 	class VarsayýlanGövde : public DüðmeDurumu
@@ -759,7 +759,7 @@ namespace bad
 	class TürYakalamaGövdesi : public YakalamaGövdesi
 	{
 	public:
-		std::vector<Tür> kuraldýþýlarý;
+		liste<Tür> kuraldýþýlarý;
 	};
 
 	class DeðiþkenYakalamaGövdesi : public YakalamaGövdesi
@@ -771,7 +771,7 @@ namespace bad
 	class HazýrBilgi : public Deyim
 	{
 	public:
-		std::string deðeri;
+		dize deðeri;
 	};
 
 	class DökümDeyimi : public Deyim
@@ -818,14 +818,14 @@ namespace bad
 	{
 	public:
 		Deyim* çaðrýlanÝþlevi;
-		std::vector<EdimselEtken> edimselEtkenleri;
+		liste<EdimselEtken> edimselEtkenleri;
 	};
 
 	class YeniDeyimi : public Deyim
 	{
 	public:
 		TürGönderimi* yeniTürü;
-		std::vector<EdimselEtken> edimselEtkenleri;
+		liste<EdimselEtken> edimselEtkenleri;
 	};
 
 	class AdGönderimi : public Deyim
@@ -846,20 +846,20 @@ namespace bad
 	{
 	public:
 		Deyim* diziAdý;
-		std::vector<Deyim> sýralarý;
+		liste<Deyim> sýralarý;
 	};
 
 	class DipnotDeyimi : public Deyim
 	{
 	public:
 		TürGönderimi* dipnotTürü;
-		std::vector<Deyim> öðeDeðerleri;
+		liste<Deyim> öðeDeðerleri;
 	};
 
 	class TopluDeyim : public Deyim
 	{
 	public:
-		std::vector<Deyim> deyimListesi;
+		liste<Deyim> deyimListesi;
 	};
 
 	class TanýmlayýcýGönderimi : public AdGönderimi

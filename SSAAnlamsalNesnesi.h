@@ -1,10 +1,10 @@
 #ifndef SSA_ANLAMSAL_NESNESÝ
 #define SSA_ANLAMSAL_NESNESÝ
 
-#include "SoyutSözdizimi.h"
+#include "SSANesnesi.h"
 #include "SSAKaynakNesnesi.h"
 #include "SSASözdizimiNesnesi.h"
-#include <vector>
+#include "Türler.h"
 
 namespace bad
 {
@@ -24,14 +24,14 @@ namespace bad
 	{
 	public:
 		KüreselKapsam* dýþKapsam;
-		std::vector<DerlemeBirimi> dosyalar;
+		liste<DerlemeBirimi> dosyalar;
 	};
 
 	class Kapsam : public SSAAnlamsalNesnesi
 	{
 	public:
-		std::vector<TanýmNesnesi> tanýmNesneleri;
-		std::vector<Kapsam> altKapsamlar;
+		liste<TanýmNesnesi> tanýmNesneleri;
+		liste<Kapsam> altKapsamlar;
 	};
 
 	class ÝþlevKapsamý : public Kapsam

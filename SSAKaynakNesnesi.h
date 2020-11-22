@@ -1,11 +1,10 @@
 #ifndef SSA_KAYNAK_NESNESÝ
 #define SSA_KAYNAK_NESNESÝ
 
-#include "SoyutSözdizimi.h"
+#include "SSANesnesi.h"
 #include "SSASözdizimiNesnesi.h"
 #include "SSAAnlamsalNesnesi.h"
-#include <string>
-#include <vector>
+#include "Türler.h"
 
 namespace bad
 {
@@ -21,7 +20,7 @@ namespace bad
 	class KaynakDosyasý : public SSAKaynakNesnesi
 	{
 	public:
-		std::string yolu;
+		dize yolu;
 	};
 
 	class KaynakKonumu : public SSAKaynakNesnesi
@@ -37,8 +36,8 @@ namespace bad
 	class DerlemeBirimi : public KaynakDosyasý
 	{
 	public:
-		std::string dili;
-		std::vector<TanýmNesnesi> parçalarý;
+		dize dili;
+		liste<TanýmNesnesi> parçalarý;
 		YazýlýmKapsamý* açtýðýKapsam;
 	};
 
