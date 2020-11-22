@@ -84,7 +84,7 @@ namespace bad
 	class Gerçek;
 	class Çift;
 	class UzunÇift;
-	class ToplamaTürü;
+	class TopluTür;
 	class ÝþaretçiTürü;
 	class GönderimTürü;
 	class AralýkTürü;
@@ -138,7 +138,7 @@ namespace bad
 	class EtiketEriþimi;
 	class DiziEriþimi;
 	class DipnotDeyimi;
-	class ToplamaDeyimi;
+	class TopluDeyim;
 	class TanýmlayýcýGönderimi;
 	class NitelikliTanýmlayýcýGönderimi;
 	class TürNitelikliTanýmlayýcýGönderimi;
@@ -566,7 +566,7 @@ namespace bad
 	class UzunÇift : public GerçekTürü
 	{};
 
-	class ToplamaTürü : public KurulmuþTür
+	class TopluTür : public KurulmuþTür
 	{};
 
 	class ÝþaretçiTürü : public KurulmuþTür
@@ -856,7 +856,7 @@ namespace bad
 		std::vector<Deyim> öðeDeðerleri;
 	};
 
-	class ToplamaDeyimi : public Deyim
+	class TopluDeyim : public Deyim
 	{
 	public:
 		std::vector<Deyim> deyimListesi;

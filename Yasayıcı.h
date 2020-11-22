@@ -30,8 +30,11 @@ namespace bad
 	{
 		const belirteç_türü& tür;
 		dize beden;
+		dize yol;
+		int satýrý;
+		int sütunu;
 
-		belirteç(const belirteç_türü& tür, dize beden);
+		belirteç(const belirteç_türü& tür, dize beden, dize yol, int satýrý, int sütunu);
 	};
 
 	constexpr int TÜR_SAYISI = 53;
@@ -39,8 +42,8 @@ namespace bad
 	const belirteç_türü türler[TÜR_SAYISI] =
 	{
 		belirteç_türü{ belirteç_ailesi::DEMEÇ, dize{ "DEMEÇ" }, desen{ "^;" } },
-		belirteç_türü{ belirteç_ailesi::GÖVDE_SONU, dize{ "GÖVDE_SONU" }, desen{ "^}" } },
-		belirteç_türü{ belirteç_ailesi::GÖVDE_BAÞI, dize{ "GÖVDE_BAÞI" }, desen{ "^{" } },
+		belirteç_türü{ belirteç_ailesi::GÖVDE_SONU, dize{ "GÖVDE_SONU" }, desen{ "^\\}" } },
+		belirteç_türü{ belirteç_ailesi::GÖVDE_BAÞI, dize{ "GÖVDE_BAÞI" }, desen{ "^\\{" } },
 		belirteç_türü{ belirteç_ailesi::ÇÝFT_ÝÞLEÇ, dize{ "ATAMA" }, desen{ "^=" } },
 		belirteç_türü{ belirteç_ailesi::BELÝRSÝZ_ÝÞLEÇ, dize{ "VE" }, desen{ "^&" } },
 		belirteç_türü{ belirteç_ailesi::ÇÝFT_ÝÞLEÇ, dize{ "VEYA" }, desen{ "^\\|" } },
@@ -93,7 +96,16 @@ namespace bad
 		belirteç_türü{ belirteç_ailesi::TANIMLAYICI, dize{ "TANIMLAYICI" }, desen{ "^[a-zA-ZÇÐÝÖÞÜçðýöþü_][a-zA-ZÇÐÝÖÞÜçðýöþü_\\d]*" } }
 	};
 
-	bool yasama(liste<belirteç>& belirteçler, const liste<dize>& satýrlar);
+	struct yasama_sonucu
+	{
+		const bool dosyaHatasý;
+		const dize dosyaYolu;
+		const bool hata;
+		const int hataSatýrý;
+		const int hataSütunu;
+	};
+
+	yasama_sonucu yasama(liste<belirteç>& belirteçler, const dize& dosyaYolu);
 }
 
 #endif

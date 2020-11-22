@@ -3,32 +3,17 @@
 #include <iostream>
 #include <fstream>
 
-bool yasama(bad::liste<bad::belirteç>& belirteçler, const bad::dize& dosya_yolu)
-{
-	bad::liste<bad::dize> satýrlar;
-	std::ifstream dosya{ dosya_yolu };
-
-	if (dosya.is_open())
-	{
-		bad::dize satýr;
-		while (std::getline(dosya, satýr))
-			satýrlar.push_back(satýr);
-		dosya.close();
-	}
-	else
-		return false;
-
-	return bad::yasama(belirteçler, satýrlar);
-}
-
 int main()
 {
 	bad::liste<bad::belirteç> liste;
+	bad::yasama_sonucu sonuç{ yasama(liste, "deneme.yazýt") };
 
-	if (yasama(liste, "deneme.yazýt"))
-		std::cout << "Yasama tamamlandý! " << liste.size() << std::endl;
+	if (sonuç.dosyaHatasý)
+		std::cout << "Dosya okunamadý! " << sonuç.dosyaYolu << std::endl;
+	else if (sonuç.hata)
+		std::cout << "Yasamada bir sorun oluþtu! Dosya: " << sonuç.dosyaYolu << " Satýr: " << sonuç.hataSatýrý << " Sütun: " << sonuç.hataSütunu << std::endl;
 	else
-		std::cout << "Yasamada bir problem oluþtu!" << std::endl;
+		std::cout << "Yasama tamamlandý! " << liste.size() << std::endl;
 
 		for (auto i{ liste.begin() }; i != liste.end(); i++)
 			std::cout << i->tür.ad << ": " << i->beden << std::endl;
