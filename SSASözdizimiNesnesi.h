@@ -2,6 +2,7 @@
 #define SSA_SÖZDÝZÝMÝ_NESNESÝ
 
 #include "SSANesnesi.h"
+#include "SSAAnlamsalNesnesi.h"
 #include "SSAKaynakNesnesi.h"
 #include "Türler.h"
 
@@ -190,9 +191,11 @@ namespace bad
 	class SSASözdizimiNesnesi : public SSANesnesi
 	{
 	public:
-		KaynakKonumu* konumBilgisi;
+		const KaynakKonumu konumBilgisi;
 		liste<ÖniþleyiciUnsuru> öniþleyiciUnsurlarý;
 		liste<DipnotDeyimi> dipnotlar;
+
+		SSASözdizimiNesnesi();
 	};
 
 	class ÖniþleyiciUnsuru : public SSASözdizimiNesnesi

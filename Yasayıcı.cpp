@@ -40,9 +40,9 @@ bad::yasama_sonucu bad::yasama(liste<belirteç>& belirteçler, const dize& dosyaYo
 		{
 			sütunNumarasý = i->size() - aktif_satýr.size() + 1;
 			j = TÜR_SAYISI;
-			while (j > 0)
+			while (j --> 0)
 			{
-				const belirteç_türü& tür{ türler[--j] };
+				const belirteç_türü& tür{ türler[j] };
 				if (std::regex_search(aktif_satýr, m, tür.desen))
 				{
 					dize d{ m[0].str() };
