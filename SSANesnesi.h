@@ -219,14 +219,57 @@ namespace bad
 	class Kapsam : public SSAAnlamNesnesi
 	{
 	public:
-		liste<TanımNesnesi> tanımNesneleri;
-		liste<Kapsam> altKapsamlar;
+		liste<TanımNesnesi*> tanımNesneleri;
+		liste<Kapsam*> altKapsamlar;
 
 		Kapsam()
 			:
-			tanımNesneleri{},
-			altKapsamlar{}
+			tanımNesneleri(),
+			altKapsamlar()
 		{}
+
+		~Kapsam()
+		{
+			for (auto i = tanımNesneleri.rbegin(); i != tanımNesneleri.rend(); i++)
+				delete* i;
+			for (auto i = altKapsamlar.rbegin(); i != altKapsamlar.rend(); i++)
+				delete* i;
+		}
+
+		İşlevKapsamı* işlevKapsamıAç()
+		{
+			İşlevKapsamı* kapsam = new İşlevKapsamı();
+			altKapsamlar.push_back(kapsam);
+			return kapsam;
+		}
+
+		BütünKapsamı* bütünKapsamıAç()
+		{
+			BütünKapsamı* kapsam = new BütünKapsamı();
+			altKapsamlar.push_back(kapsam);
+			return kapsam;
+		}
+
+		GövdeKapsamı* gövdeKapsamıAç()
+		{
+			GövdeKapsamı* kapsam = new GövdeKapsamı();
+			altKapsamlar.push_back(kapsam);
+			return kapsam;
+		}
+
+		YazılımKapsamı* yazılımKapsamıAç()
+		{
+			YazılımKapsamı* kapsam = new YazılımKapsamı();
+			altKapsamlar.push_back(kapsam);
+			return kapsam;
+		}
+
+		KüreselKapsam* küreselKapsamAç()
+		{
+			KüreselKapsam* kapsam = new KüreselKapsam();
+			altKapsamlar.push_back(kapsam);
+			return kapsam;
+		}
 	};
 
 	// BELKİ SIRALA
@@ -248,14 +291,19 @@ namespace bad
 	class Tasarı : public SSAAnlamNesnesi
 	{
 	public:
-		KüreselKapsam dışKapsam;
-		liste<DerlemeBirimi> dosyalar;
+		KüreselKapsam* dışKapsam;
+		liste<DerlemeBirimi*> dosyalar;
 
 		Tasarı()
 			:
-			dışKapsam{},
-			dosyalar{}
+			dışKapsam(new KüreselKapsam()),
+			dosyalar()
 		{}
+
+		~Tasarı()
+		{
+			delete dışKapsam;
+		}
 	};
 
 	// Soyut Sözdizimi Ağacı Kaynak Nesnesi
@@ -268,73 +316,98 @@ namespace bad
 	class KaynakDosyası : public SSAKaynakNesnesi
 	{
 	public:
-		dize yolu;
+		const dize* yolu;
 
 		KaynakDosyası(
 			const dize& yol)
 			:
-			yolu{ yol }
+			yolu(new dize(yol))
 		{}
+
+		~KaynakDosyası()
+		{
+			delete yolu;
+		}
 	};
 
 	class KaynakKonumu : public SSAKaynakNesnesi
 	{
 	public:
-		int başlangıçSatırı;
-		int başlangıçSütunu;
-		int bitişSatırı;
-		int bitişSütunu;
-		paiş<KaynakDosyası> bulunduğuDosya;
+		const int* başlangıçSatırı;
+		const int* başlangıçSütunu;
+		const int* bitişSatırı;
+		const int* bitişSütunu;
+		const KaynakDosyası* bulunduğuDosya;
 
 		KaynakKonumu(
 			const int& başlangıçSatırı,
 			const int& başlangıçSütunu,
 			const int& bitişSatırı,
 			const int& bitişSütunu,
-			const paiş<KaynakDosyası>& bulunduğuDosya)
+			const KaynakDosyası* bulunduğuDosya)
 			:
-			başlangıçSatırı{ başlangıçSatırı },
-			başlangıçSütunu{ başlangıçSütunu },
-			bitişSatırı{ bitişSatırı },
-			bitişSütunu{ bitişSütunu },
-			bulunduğuDosya{ bulunduğuDosya }
+			başlangıçSatırı(new int(başlangıçSatırı)),
+			başlangıçSütunu(new int(başlangıçSütunu)),
+			bitişSatırı(new int(bitişSatırı)),
+			bitişSütunu(new int(bitişSütunu)),
+			bulunduğuDosya(bulunduğuDosya)
 		{}
+
+		~KaynakKonumu()
+		{
+			delete başlangıçSatırı;
+			delete başlangıçSütunu;
+			delete bitişSatırı;
+			delete bulunduğuDosya;
+		}
 	};
 
 	class DerlemeBirimi : public KaynakDosyası
 	{
 	public:
-		paiş<dize> dili;
-		liste<TanımNesnesi> parçaları;
-		YazılımKapsamı açtığıKapsam;
+		const dize* dili;
+		liste<TanımNesnesi*> parçaları;
+		YazılımKapsamı* açtığıKapsam;
 
 		DerlemeBirimi(
 			const dize& yol,
-			const paiş<dize>& dili)
+			const dize* dili)
 			:
-			KaynakDosyası{ yol },
-			dili{ dili },
-			parçaları{},
-			açtığıKapsam{}
+			KaynakDosyası(yol),
+			dili(dili),
+			parçaları(),
+			açtığıKapsam()
 		{}
+
+		~DerlemeBirimi()
+		{
+			for (auto i = parçaları.begin(); i != parçaları.end(); i++)
+				delete* i;
+			delete açtığıKapsam;
+		}
 	};
 
 	// BUNA DAHA SONRA BAK!!!
 	class KaynakDosyasıGönderimi : public KaynakDosyası
 	{
 	public:
-		KaynakKonumu konumBilgisi;
-		paiş<KaynakDosyası> gönderdiğiDosya;
+		const KaynakKonumu* konumBilgisi;
+		const KaynakDosyası* gönderdiğiDosya;
 
 		KaynakDosyasıGönderimi(
 			const dize& yol,
 			const KaynakKonumu& konumBilgisi,
-			const paiş<KaynakDosyası>& gönderdiğiDosya)
+			const KaynakDosyası* gönderdiğiDosya)
 			:
-			KaynakDosyası{ yol },
-			konumBilgisi{ konumBilgisi },
-			gönderdiğiDosya{ gönderdiğiDosya }
+			KaynakDosyası(yol),
+			konumBilgisi(new KaynakKonumu(konumBilgisi)),
+			gönderdiğiDosya(gönderdiğiDosya)
 		{}
+
+		~KaynakDosyasıGönderimi()
+		{
+			delete konumBilgisi;
+		}
 	};
 
 	// Soyut Sözdizimi Ağacı Sözdizimi Nesnesi
