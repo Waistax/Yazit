@@ -17,6 +17,16 @@ namespace bad
 	using öziþ = std::unique_ptr<T>;
 	template<typename T>
 	using paiþ = std::shared_ptr<T>;
+
+	template<class T, class...Args>
+	öziþ<T> özgün(Args&&...args) {
+		return öziþ<T>(new T(std::forward<Args>(args)...));
+	}
+
+	template<class T, class...Args>
+	paiþ<T> paylaþýlan(Args&&...args) {
+		return paiþ<T>(new T(std::forward<Args>(args)...));
+	}
 }
 
 #endif

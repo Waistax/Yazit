@@ -41,15 +41,6 @@
     <ClInclude Include="SoyutSözdizimi.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SSAAnlamsalNesnesi.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SSASözdizimiNesnesi.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SSAKaynakNesnesi.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="SSANesnesi.h">
       <Filter>Header Files</Filter>
     </ClInclude>

@@ -1,32 +1,34 @@
 #ifndef SOYUT_SÖZDÝZÝMÝ
 #define SOYUT_SÖZDÝZÝMÝ
 
-#include "SSAAnlamsalNesnesi.h"
+#include "SSANesnesi.h"
 #include "Yasayýcý.h"
 
 namespace bad
 {
 	struct ayrýþtýrma_sonucu
 	{
-		const Tasarý* tasarý;
-		const belirteç* hatalýBelirteç;
+		const paiþ<Tasarý> tasarý;
+		const paiþ<belirteç> hatalýBelirteç;
 		//const belirteç_türü* beklenenBelirteç;
+
+		ayrýþtýrma_sonucu(const paiþ<Tasarý>& tasarý, const paiþ<belirteç>& hatalýBelirteç);
 	};
 
 	struct unsur
 	{
-		const belirteç* belirteç;
-		const BildirimVeyaTaným* bildirimVeyaTaným;
+		const paiþ<belirteç> belirteç;
+		const paiþ<SSANesnesi> nesne;
 
-		unsur(const bad::belirteç* belirteç);
+		unsur(const paiþ<bad::belirteç>& belirteç);
 
-		unsur(const BildirimVeyaTaným* bildirimVeyaTaným);
+		unsur(const paiþ<SSANesnesi>& nesne);
 	};
 
 	struct yoklama_sonucu
 	{
 		const int kullanýlanSayýsý;
-		const paiþ<BildirimVeyaTaným> sonucu;
+		const paiþ<SSANesnesi> sonucu;
 	};
 
 	struct kural
@@ -48,7 +50,7 @@ namespace bad
 		&k_hazýr_bilgi
 	};
 
-	ayrýþtýrma_sonucu ayrýþtýr(const liste<belirteç>& belirteçler);
+	öziþ<ayrýþtýrma_sonucu> ayrýþtýr(const liste<paiþ<belirteç>>& belirteçler);
 }
 
 #endif
