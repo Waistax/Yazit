@@ -35,9 +35,6 @@
     <ClInclude Include="Yasayıcı.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Türler.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="SoyutSözdizimi.h">
       <Filter>Header Files</Filter>
     </ClInclude>

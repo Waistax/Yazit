@@ -147,7 +147,6 @@
   <ItemGroup>
     <ClInclude Include="SoyutSözdizimi.h" />
     <ClInclude Include="SSANesnesi.h" />
-    <ClInclude Include="Türler.h" />
     <ClInclude Include="Yasayıcı.h" />
     <ClInclude Include="Yazıt.h" />
   </ItemGroup>
